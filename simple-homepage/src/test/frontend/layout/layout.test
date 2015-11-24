@@ -10,7 +10,7 @@
 
 @@ parameterized using browsers
 @@ parameterized using devices
-@@ groups login, page
+@@ groups homepage
 home on ${deviceName} in ${browerName} browser
   selenium ${browser} ${websiteUrl} ${size}
     check specs/homePageLayout.gspec --include "${device}"
