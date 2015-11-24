@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Responsive Testing mit Galen</title>
+    <title>Responsive Testing with Galen</title>
 
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -44,7 +44,7 @@
 
     <div class="slides">
         <section data-markdown  data-separator="^\n---\n$" data-separator-vertical="^\n--\n$" data-separator-notes="^>NOTES:"><script type="text/template"># Responsive Testing mit Galen
-Martin Reinhardt 
+Martin Reinhardt
 
 ![Twitter - Martin Reinhardt](images/tweet_logo.png) <!-- .element: class="inline" style="max-height:32px; vertical-align: top; " --> [@mreinhardt](https://twitter.com/mreinhardt)<br />
 
@@ -53,90 +53,87 @@ Martin Reinhardt
 
 # Agenda
 
-* Warum Galen?
+* Why Galen?
 * Responsive Testing
 * Galen Specs
 * Demo
 * Best Practices & Lessons Learned
-* Ausblick
+* Outlook
 
 
 ---
 
-# Warum Galen
 
-* Unterschiedliche Darstellungsformen für Bilder, wie Produktabbildungen, je nach verwendetem Endgerät<!-- .element: class="fragment"-->
-* Mobile und Desktop-Ansichten liefern gleiche User Experience im Repsonsive Design wie getrennt gepflegte Varianten<!-- .element: class="fragment"-->
-* Responsive Webdesign erhöht Testaufwand für verschiedene Auflösungen/Geräteklassen<!-- .element: class="fragment"-->
-* Agile Entwicklung wiederholt gerade Testschritte in mehreren Sprints<!-- .element: class="fragment"-->
+# Why Galen
+
+* Different screen size and element appearance for devices<!-- .element: class="fragment"-->
+* Responsive Layout drives testing effort<!-- .element: class="fragment"-->
+* Agile development need repeatable automated tests<!-- .element: class="fragment"-->
 
 >NOTES:
 * Browser-Wanking
-* Kombinationen für Layout-Tests multiplizieren sich mit jeder Klasse
+* Combinations of screen size and browser increase efforts
      * 20 Seiten in 4 Browsern
      * X4 Geräteklassen
-* Dann nochmal Wiederholung in mehreren Sprints
+* Repeats in every sprint
      * Features gesplittet.
      * Änderungen an Features
-* Menschen nicht geeignet um so etwas wiederholt zu verifizieren, Komplexität des Layouts!
-* Mitarbeit im Galen-Projekt
+* human are not good in repeating the same things over and over again
 
 --
 
-# Über Galen
+# About Galen
 
 ![Galen Logo](images/galen_logo.png)
 
 >  "Galen is a OSS tool for testing html layout in a real browser"
 
-* Grundprinzipen<!-- .element: class="fragment"-->
-	* Test beschreiben im BDD-Stil das gewünschte Verhalten
-	* "menschlich lesbar"
-	* Verhalten wie ein Nutzer
+* Galen is a OSS tool for testing html layout in a real browser
+* Tests describing the expected behaviour in a certian device
 * Features<!-- .element: class="fragment"-->
-	* DSL für die Beschreibung der Specs
-	* Eigene Testsyntax mit Data-Providern (optional)
-	* Selenium für die Ausführung
-	* Ausführliches Reporting
+	* Human readable DSL<!-- .element: class="fragment"-->
+	* uses Selenium as Runtime (e.g page interaction with Selenium possible)<!-- .element: class="fragment"-->
+	* Advanced test suite syntax with data-providers<!-- .element: class="fragment"-->
+	* Advanced Reporting<!-- .element: class="fragment"-->
 
 >NOTES:
-* Interaktion mit WebDriver möglich
-* positiv UND negativ Feedback
+* Interaction via WebDriver possible
+* positive AND negative feedback
 
 --
 
-# Architektur
+# Architecture
 
-* Test Spezifikationen und Device Infos werden interpretiert
-* Tests werden mit Selenium ausgeführt
+* Test specifications and device informations = Test Run
+* Tests are running in Selenium
 
 ![Galen Release 2](images/Galen_AoD_v1.png)
 
-* Schnittstellen zu Java und JavaScript<!-- .element: class="fragment"-->
+* API for Java and JavaScript<!-- .element: class="fragment"-->
 
 >NOTES:
-* Galen ist in Java geschrieben
-* Rhino als Schnittstelle zwischen Galen und JavaScript
+* Galen is written in Java
+* Rhino as API to JavaScript
 
 --
 
 ![Layout Design](images/layout_design.png)
 
-* Layout Testing ist herausfordernd
-* Lösung: Beziehung von Elementen relativ zueinander in einer DSL beschreiben 
+* Layout Testing is challenging
+* Simple solution: test object relative to each other via a special syntax and rules
 
 --
 
 ![Selenium Grid](images/selenium_grid.png)
 
-* Ausführung lokal oder in Selenium Grid, auch SauceLabs oder BrowserStack 
-* Unterstützung für verschiedene Browser
-* Ausführung in mobilen Geräten möglich
-* Parallele Ausführung um Testausführung zu reduzieren
+* Runs in Selenium Grid
+* Test several browser, e.g in a cloud like Sauce Labs or BrowserStack
+* Supports testing on different mobile devices
+*  run multiple tests in parallel to save time
 
 
 >NOTES:
-* Mobile Geräte mit Appium
+* Mobile devices via Appium
 
 --
 
@@ -153,12 +150,12 @@ Martin Reinhardt
 
 ---
 
-# Größe ist wichtig ...
+# Size does matter ...
 
-* Responsive Tests im TDD-Style möglich
-* Anforderung in Spec beschreiben
-* Verifizierung über die Testausführung
-* Definition der Geräte wichtig für Testausführung
+* responsive Tests in TDD-Style possible
+* requirements are written in Layout Spec
+* verify requirments via a test run
+* screen size import during execution and for the the assumed layout
 
 --
 
@@ -167,10 +164,10 @@ Martin Reinhardt
 
 ![Responsive Design](images/responsive_design.png)
 
-* Galen wurde aufgrund von Responsive Webdesign entwickelt
-* Geräte stehen stellvertretend für Browser und Bildschirmgröße
-* Tags sorgen für Zuordnung
-* Zur Ausführung wird Browsergröße angepasst und Test ausgeführt
+* Galen was developed to ease testing of Responsive Webdesign
+* devices represents browser and different screen sizes
+* tagging is used for mapping
+* during exeution the browser size is adapted and test get executed
 
 ---
 
@@ -178,14 +175,14 @@ Martin Reinhardt
 
 ![Spec Language](images/galen_spec.png)
 
-* Elemente werden zunächst bekannt gemacht
-* Geräte(klassen) werden über Tags festgelegt
-* Elemente erhalten Regeln, die geprüft werden
+* elements are defined
+* devices are matched via Tags
+* rules describe your expectations
 
 
 --
 
-# Beispiel
+# Example
 
 ```python
 @objects
@@ -205,21 +202,20 @@ Martin Reinhardt
         inside parent ~5px left
 
 ```
-* Ohne Tag gilt es für alle Varianten
+* without any tag it applies to all devices
 
 
 --
 
-## Wiederverwendung
+## Reuse
 
-Prinzipiell zwei Arten
 
-* Importieren von Specs
-* Auslagerung in Komponenten
+* Import
+* Components
 
 --
 
-## Import von allgemeinen Specs
+## Import of general specs
 
 ```python
 @objects
@@ -236,10 +232,10 @@ Prinzipiell zwei Arten
 
 --
 
-## Komponenten
+## Components
 
-* Komponenten verhalten sich wie Widgets, z.B. Menüeinträge oder Listeneinträge
-* Pseudo-Element 'parent' für Referenzierung
+* behave like widgets, z.B. menu or list entries
+* Pseudo-element 'parent' for reference
 
 
 ```python
@@ -258,9 +254,9 @@ Prinzipiell zwei Arten
 
 --
 
-## Aufbau von Tests
+## Structure of tests
 
-* Galen erlaubt Parametrisierung:
+* Galen allows using parameters:
 
 ```python
 @@ table devices
@@ -275,53 +271,50 @@ homepage on ${device}
     check specs/homepage.spec --include "${device}"
 
 ```
-Ausführung über Kommandozeile
+Run via commandline
 
 ```
 galen test my.test -DwebsiteUrl='https://getbootstrap.com' --htmlreport reports/
 ```
 
---
+# Test execution
 
-
-# Testausführung
-
-Einzelne Tests können auch direkt ausgeführt werden
+Can run single tests:
 
 
 ```python
-$ galen check home-page.spec 
-    --url "http://example.com/home" 
-    --size 1024x800 
-    --include desktop 
+$ galen check home-page.spec
+    --url "http://example.com/home"
+    --size 1024x800
+    --include desktop
     --htmlreport report.html
 ```
 
 --
 
-# Bildvergleich
+# Image comparison
 
-* Pagedump kann Screenshots der aktuellen Seite erzeugen
+* Pagedump taking screenshots of current page
 
 ```python
 galen dump "specs/homepage.spec"
     --url "http://galenframework.com"
     --size "1024x768"
-    --export "dumps/homepage-dump" 
-    --max-width "200" 
+    --export "dumps/homepage-dump"
+    --max-width "200"
     --max-height "200"
 ```
 
 >NOTES:
-* Pagedump eignet sich auch zum "Sammeln der Elemente"
+* Pagedump eases the "collection of specs"
 
 --
 
-# Vergleich in Spec
+# Usage in Spec
 
 ```python
 header-logo
-    image: file imgs/header-logo.png, error 4% 
+    image: file imgs/header-logo.png, error 4%
 ```
 
 ![Responsive Design](images/galen_image-comparison.png)
@@ -333,12 +326,13 @@ header-logo
 ![Responsive Design](images/galen_report.png)
 
 
-* Report hilft durch direkte Anzeige der Elemente bei Fehlersuche
+* Report is helping to show errors
+* Heatmap helps to see how you stressed your constraints
 
 
 --
 
-# Beispiel-Report
+# Sample-Report
 
 <div  class="stretch">
 <iframe src="code/reports/bootstrap/12-javascript-page-on-desktop-in-firefox-browser.html" width="100%" height="100%" style=" margin: 0px; padding: 0px;"></iframe>
@@ -348,7 +342,7 @@ header-logo
 
 # Demo
 
-```python 
+```python
 # basic.test
 @@ table browsers
     | browerName | browser |
@@ -385,10 +379,10 @@ galen test basic.test -DwebsiteUrl="getbootstrap.com" --htmlreport reports -Dweb
 
 # Saucelabs
 
-* Testing in Cloud möglich
+* Testing in Cloud possible
 
-```python 
-@@ set 
+```python
+@@ set
     sauceKey        aff16b42-9c23-4cb6-adf7-38da9e02193a
     sauceUser       hypery2k
     gridLogin       ${sauceUser}:${sauceKey}
@@ -414,10 +408,10 @@ Home page on ${browserName} browser
 
 ---
 
-# Interaktion
+# Interaction
 
-* [GalenPages API](http://galenframework.com/docs/reference-galenpages-javascript-api/) hilft bei Interaktionen
-* Einfache PageObject-Pattern Biblothek
+* [GalenPages API](http://galenframework.com/docs/reference-galenpages-javascript-api/) helps to support simple interactions
+* Simple PageObject-Pattern Library
 
 ```javascript
 var login = arg.login, password = arg.password; // test data
@@ -438,10 +432,12 @@ this.LoginPage = $page("Login page", {
 });// now you can use it like this
 new LoginPage(driver).load().loginAs(login, password);
 ```
+>NOTES:
+* Integration in other frameworks possible, e.g. Protractor
 
 --
 
-# Kombination von GalenPages und Specs
+# Combine GalenPages and Specs
 
 ```python
 @@ table browsers
@@ -466,13 +462,12 @@ login on ${deviceName} in ${browerName} browser
 
 ---
 
-# Fazit
+# Sum up
 
-* TDD in Responsive Design möglich mit Galen
-	* Anforderung in Specs formulieren (ID zunächst festlegen)
-	* Regeln für das Verhalten in Spec hinterlegen
-	* Frontend entwickeln
-	* Design mit Specs verifizieren
+* TDD in Responsive Design possible
+	* decribe layout requirements in layout spec
+	* implement frontend
+	* verify frontend design
 
 >NOTES:
 Once the html is finished you can define the references to all your objects in spec using one of the locators: id, css, xpath
@@ -481,28 +476,25 @@ Once the html is finished you can define the references to all your objects in s
 
 ## Best Practices & Lessons Learned
 
-* Rahmenbedingungen
-	* Responsive Tests helfen beim Testen von Responsive Design (BDD)
-	* Nicht 'Pixel-genau' testen
-	* Elemente relativ zueinander ansprechen
-* Tests sind anfällig
-	* Infrastruktur (Integration Tests)
-	* Nutzung Selenium Grid
-	* Schritt für Schritt ausbauen (Seiten, Browser, Geräte)
-	* Nicht sinnvoll alles zu testen
+* General
+	* Responsive testing is possible
+	* but don't check 'each pixel'
+	* use element relations
+* tests can be flaky
+	* infrastructure (Integration Tests)
+	* Use Selenium Grid
+	* Implement step by step (pages, browser, screen sizes)
+	* not test all
 
 >NOTES:
-* Aufgrund von verschiedenen Browsern Pixel-genau nicht sinvoll (Rundungen ...)
-* Integrationstests aufgrund ihrer Natur!!
-* Fokus beim Testen wichtig
-* Nicht den Fehler machen am Anfang alles zu testen
-  * Eine Platform/Browser zu Beginn
-  * Schritt für Schritt ausbauen
-
+* do not stick to Pixel
+* layout tests are mostly integration tests
+* focus on the important stuff
+* do not mess up with to strict and too much tests at the beginning
 
 --
 
-# Einführung
+# Introduction
 
 <iframe width="676" height="411" src="//www.youtube.com/embed/mW9lWZtI7AE" frameborder="0" allowfullscreen></iframe>
 
@@ -510,7 +502,8 @@ Once the html is finished you can define the references to all your objects in s
 
 # Links
 
-* Präsentation und Beispiel: [github.com/SoKaHH/Galen_Meetup](https://github.com/SoKaHH/Galen_Meetup)
+* Presentation: [github.com/hypery2k/galen_workshop](https://github.com/hypery2k/galen_workshop/)
+* Kickstarter for IDE: [github.com/hypery2k/galen_ide](https://github.com/hypery2k/galen_ide)
 * [galenframework.com](http://galenframework.com)
 * [Visual Test-Driven Development For Responsive Interface Design](http://www.smashingmagazine.com/2015/04/07/visual-test-driven-development-responsive-interface-design/)
 * [Using Galen with gulp](http://galenframework.com/docs/tutorial-using-galen-with-a-task-runner/)
@@ -532,20 +525,20 @@ Once the html is finished you can define the references to all your objects in s
 
 # Coding Katas
 
- * Spec-Doku nutzen: http://bit.ly/1UM4Dt3
- * Fork des GitHub-Projektes: [github.com/SoKaHH/Galen_Meetup](https://github.com/SoKaHH/Galen_Meetup)
- * Teams von 2-3 Personen
- * Pro Durchgang 30 Minuten
- * Java oder JavaScript Variante nutzbar [github.com/hypery2k/galen_samples](https://github.com/hypery2k/galen_samples)
+ * use spec documentation: http://bit.ly/1UM4Dt3
+ * use either homepage project or spring sample
+ * fork the GitHub project: [github.com/hypery2k/galen_workshop/](https://github.com/hypery2k/galen_workshop/)
+ * teams with up to 3 persons
+ * duration of 20 minutes
+ * use Java or JavaScript: [github.com/hypery2k/galen_samples](https://github.com/hypery2k/galen_samples)
 
-1. Layout der Seite verifzieren
-    * Bild sprengt in niedrigen Auflösungen das Layout
-    * Footer sollte in Mobile als Liste angezeigt werden
-    * Footer sollte Abstand zum Inhalt erhalten
-2. Event-Seite verbessern
-	* Events sollen auf einem Zeitstrahl dargestellt werden
-	* z.B. http://visjs.github.io/angular-visjs/#/home
-	* Event-Tabelle soll auf allen Größen keine vertikale Scrollbalken anzeigen
+1. Verify current layout
+    * Remove pixel chekcs
+    * images in header exceed viewport (error!)
+    * footer should be a list on mobile and should have a margin to content
+2. Add/Extend event page
+	* events as timeline: http://visjs.github.io/angular-visjs/#/home
+	* table should have no vertical scroll bars
 </script></section>
     </div>
     <footer>
