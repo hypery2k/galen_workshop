@@ -40,8 +40,8 @@
             </div>
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="index.html">Home<span class="sr-only">(current)</span></a></li>
-                    <li><a href="events.html">Events</a></li>
+                    <li><a href="index.html">Home<span class="sr-only">(current)</span></a></li>
+                    <li class="active"><a href="events.html">Events</a></li>
                     <li><a href="#">Login</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -64,14 +64,90 @@
 
 <div id="content" class="content container-fluid">
     <div class="container">
-        <h3>My Homepage <span class="label label-default">New</span></h3>
-        <ul class="list-group">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Morbi leo risus</li>
-            <li class="list-group-item">Porta ac consectetur ac</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
+        <h1>Eventdaten</h1>
+        <legend>Eventdaten auswählen</legend>
+        <div class="table-responsive row">
+            <table class="table ng-scope ng-table">
+                <thead>
+                <tr>
+                    <th> Eintragung</th>
+                    <th> Ereignis</th>
+                    <th> Beginn</th>
+                    <th> Ende</th>
+                    <th> Bearbeiten</th>
+                    <th> Löschen</th>
+                </tr>
+                <!-- ngRepeat: event in $data -->
+                <tr class="success">
+                    <td> 2015-07-01</td>
+                    <td> (Responsive) UI Testing mit Galen</td>
+                    <td> 18.09.15</td>
+                    <td></td>
+                    <td>
+                        <button><span class="glyphicon glyphicon-wrench"></span>
+                        </button>
+                    </td>
+                    <td>
+                        <button><span class="glyphicon glyphicon-remove"></span></button>
+                    </td>
+                </tr>
+                <!-- end ngRepeat: event in $data -->
+                <tr class="success">
+                    <td> 2015-07-01</td>
+                    <td> Ein großes Event für Groß und Klein, damit auch jeder was davon hat!</td>
+                    <td> 01.09.15</td>
+                    <td> 21.09.15</td>
+                    <td>
+                        <button><span class="glyphicon glyphicon-wrench"></span>
+                        </button>
+                    </td>
+                    <td>
+                        <button><span class="glyphicon glyphicon-remove"></span></button>
+                    </td>
+                </tr>
+                <tr class="success">
+                    <td> 2015-07-01</td>
+                    <td> Clean Code Session</td>
+                    <td> 03.09.15</td>
+                    <td> 05.09.15</td>
+                    <td>
+                        <button><span class="glyphicon glyphicon-wrench"></span>
+                        </button>
+                    </td>
+                    <td>
+                        <button><span class="glyphicon glyphicon-remove"></span></button>
+                    </td>
+                </tr>
+                <tr class="success ng-scope" style="">
+                    <td> 2015-07-01</td>
+                    <td> Spieleabend</td>
+                    <td> 01.09.15</td>
+                    <td></td>
+                    <td>
+                        <button><span class="glyphicon glyphicon-wrench"></span>
+                        </button>
+                    </td>
+                    <td>
+                        <button><span class="glyphicon glyphicon-remove"></span></button>
+                    </td>
+                </tr>
+                </thead>
+            </table>
+            <div>
+                <div>
+                    <div>
+                        <div class="btn-group pull-right">
+                            <!-- ngRepeat: count in params.settings().counts -->
+                            <button type="button" class="btn btn-default active"><span>10</span></button>
+                            <button type="button" class="btn btn-default "><span>25</span></button>
+                            <button type="button" class="btn btn-default "><span>50</span></button>
+                            <button type="button" class="btn btn-default "><span>100</span></button>
+                        </div>
+                        <ul class="pagination ng-table-pagination"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
