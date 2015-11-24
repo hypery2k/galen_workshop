@@ -1,0 +1,28 @@
+angular-spring-boot-webapp/tmp/
+angular-spring-boot-webapp/.tmp/
+angular-spring-boot-webapp/.sass-cache/
+angular-spring-boot-webapp/bower_components/
+angular-spring-boot-webapp/node/
+angular-spring-boot-webapp/node_modules/
+angular-spring-boot-webapp/src/main/resources/static/*
+simple-homepage/tmp/
+simple-homepage/.tmp/
+simple-homepage/.sass-cache/
+simple-homepage/bower_components/
+simple-homepage/node/
+simple-homepage/node_modules/
+
+# Eclipse files
+**/.project
+**/.settings/
+**/.classpath
+*.class
+**/target
+**/bin
+**/.springBeans
+
+# IDEA files
+.idea/*
+*.iml
+*.ipr
+*.iws

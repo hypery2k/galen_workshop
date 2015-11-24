@@ -1,0 +1,2 @@
+#!/bin/bash
+galen test layout.test -DwebsiteUrl=file://${PWD}/../../../../target/homepage/index.html --htmlreport ../../../../target/galen-report/  --testngreport  ../../../../target/failsafe-reports/Test-ngSpring.layout.xml
