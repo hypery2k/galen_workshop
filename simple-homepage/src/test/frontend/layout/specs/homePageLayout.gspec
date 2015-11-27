@@ -20,7 +20,7 @@
      header.navbar.item-*:
        absent
 
-   @on deskop
+   @on desktop
      header.navbar.item-*:
        visible
 
@@ -30,6 +30,6 @@
      content:
        width 100% of screen/width
 
-   @on deskop
+   @on desktop
      content:
-       width 80 to 90% of screen/width comm
+       width 80 to 90% of screen/width
