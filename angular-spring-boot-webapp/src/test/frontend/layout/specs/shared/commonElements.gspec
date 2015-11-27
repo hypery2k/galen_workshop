@@ -2,6 +2,7 @@
 @objects
   header			.header
     navbar          .navbar
+      image         img
       item          li
   content			.content
     header-container	.h1

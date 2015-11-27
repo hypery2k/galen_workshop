@@ -18,11 +18,13 @@
        visible
 
   = Content should fit to screen size =
+    header.navbar.image:
+      "image inside header" inside header.navbar
 
-   @on mobile
-     content:
-       width 100% of screen/width
+    @on mobile
+      content:
+        width 80 to 100% of screen/width
 
-   @on desktop
-     content:
-       width 80 to 90% of screen/width comm
+    @on desktop
+      content:
+        width 80 to 90% of screen/width

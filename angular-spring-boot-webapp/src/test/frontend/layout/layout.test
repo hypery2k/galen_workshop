@@ -3,16 +3,16 @@
     | Chrome     | chrome  |
     | Firefox    | firefox |
 @@ table devices
-    | deviceName | tags      | size     |
-    | Mobile     | mobile    | 320x600  |
-    | Tablet     | tablet    | 640x480  |
-    | Desktop    | desktop   | 1024x800 |
+    | deviceName | tags             | size     |
+    | Mobile     | phone,mobile     | 320x600  |
+    | Tablet     | tablet,mobile    | 640x480  |
+    | Desktop    | desktop          | 1024x800 |
 
 @@ parameterized using browsers
 @@ parameterized using devices
 @@ groups login, page
 login on ${deviceName} in ${browerName} browser
   selenium ${browser} ${websiteUrl} ${size}
-    check specs/loginPageLayout.gspec --include "${device}"
+    check specs/loginPageLayout.gspec --include "${tags}"
     run login.js '{login: "user", password: "password", get: "${websiteUrl}/#/event"}'
-    check specs/eventPageLayout.gspec --include "${device}"
+    check specs/eventPageLayout.gspec --include "${tags}"
