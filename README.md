@@ -24,4 +24,4 @@ The source code can be found [here](angular-spring-boot-webapp).
 
 ## Presentation
 
-See [Github.io](http://hypery2k.github.io/presentations/galen_workshop).
+See [Github.io](http://hypery2k.github.io/presentations/galen_workshop/en.html).
