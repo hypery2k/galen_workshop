@@ -429,7 +429,9 @@ module.exports = function (grunt) {
             'galen-ci': {
                 command: './runGalenTests.ci.sh',
                 options: {
-                    stderr: true,
+                    failOnError: false,
+                    stdout: false,
+                    stderr: false,
                     execOptions: {
                         cwd: './src/test/frontend/layout/'
                     }
